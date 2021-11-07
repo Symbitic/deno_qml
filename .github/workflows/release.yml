@@ -2,8 +2,12 @@ name: release
 
 on:
   push:
-    tags:
-      - v*
+    branches: [main]
+
+#on:
+#  push:
+#    tags:
+#      - v*
 
 jobs:
   build:
@@ -45,6 +49,12 @@ jobs:
 
       - name: Build
         run: cmake --build build -j4
+
+      - name: Temp
+        if: startsWith(matrix.config.os, 'windows')
+        run: |
+          dir build
+        shell: cmd
 
       - name: Upload (Windows)
         uses: softprops/action-gh-release@v1
