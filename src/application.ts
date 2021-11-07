@@ -10,11 +10,20 @@ export class Application {
     }
 
     /**
-     * Load a QML string to use as a window.
+     * Load QML from a string.
      * @param data QML string.
      */
     loadData(data: string) {
         bindings.loadData(data);
+    }
+    
+    /**
+     * Load QML from a file.
+     * @param filename QML filename.
+     */
+    async load(filename: string) {
+        const data = await Deno.readTextFile(filename);
+        this.loadData(data);
     }
 
     /**
