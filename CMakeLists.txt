@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.14)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE OFF)
 
+if (WIN32)
+    set(CMAKE_SHARED_LIBRARY_PREFIX "" CACHE STRING "Remove 'lib' on Windows")
+endif()
+
 project(deno_qml)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -18,8 +22,10 @@ add_library(deno_qml SHARED
 )
 
 if (WIN32)
+    message("IS_WINDOWS=1")
     set_target_properties(deno_qml PROPERTIES OUTPUT_NAME deno_qml)
 endif()
+#/usr/share/cmake/Modules/Platform/Windows-GNU.cmake:set(CMAKE_SHARED_LIBRARY_PREFIX "lib")
 
 target_link_libraries(deno_qml PUBLIC
     Qt::Core
