@@ -2,10 +2,6 @@ cmake_minimum_required(VERSION 3.14)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE OFF)
 
-if (WIN32)
-    set(CMAKE_SHARED_LIBRARY_PREFIX "" CACHE STRING "Remove 'lib' on Windows")
-endif()
-
 project(deno_qml)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -15,6 +11,11 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 find_package(Qt5 CONFIG REQUIRED COMPONENTS Core Gui Qml Quick)
+
+if (WIN32)
+    set(CMAKE_SHARED_LIBRARY_PREFIX "")
+    set(CMAKE_SHARED_MODULE_PREFIX "")
+endif()
 
 add_library(deno_qml SHARED
     lib/denoqt.h
