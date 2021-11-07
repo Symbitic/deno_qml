@@ -20,7 +20,7 @@ jobs:
           - name: "Windows"
             os: windows-latest
             environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
-            arch: win64_mingw73
+            arch: win64_mingw81
 
     steps:
       - uses: actions/checkout@v1
@@ -30,6 +30,9 @@ jobs:
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
+        with:
+          arch: "${{ matrix.config.arch }}"
+          version: "5.15.2"
 
       - name: Configure build environment
         if: startsWith(matrix.config.os, 'windows')
