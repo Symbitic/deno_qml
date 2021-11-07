@@ -23,6 +23,11 @@ add_library(deno_qml SHARED
 
 if (WIN32)
     message("IS_WINDOWS=1")
+    message("CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}")
+    message("CMAKE_DEFAULT_BUILD_TYPE=${CMAKE_DEFAULT_BUILD_TYPE}")
+    message("CMAKE_SHARED_LIBRARY_PREFIX=${CMAKE_SHARED_LIBRARY_PREFIX}")
+    message("CMAKE_SHARED_MODULE_PREFIX=${CMAKE_SHARED_MODULE_PREFIX}")
+    message("CMAKE_STATIC_LIBRARY_PREFIX=${CMAKE_STATIC_LIBRARY_PREFIX}")
     set_target_properties(deno_qml PROPERTIES OUTPUT_NAME deno_qml)
 endif()
 #/usr/share/cmake/Modules/Platform/Windows-GNU.cmake:set(CMAKE_SHARED_LIBRARY_PREFIX "lib")
