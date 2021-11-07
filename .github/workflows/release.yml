@@ -2,12 +2,8 @@ name: release
 
 on:
   push:
-    branches: [main]
-
-#on:
-#  push:
-#    tags:
-#      - v*
+    tags:
+      - v*
 
 jobs:
   build:
@@ -17,6 +13,10 @@ jobs:
       fail-fast: false
       matrix:
         config:
+          - name: "Linux"
+            os: ubuntu-latest
+          - name: "macOS"
+            os: macos-latest
           - name: "Windows"
             os: windows-latest
             environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
@@ -45,12 +45,6 @@ jobs:
 
       - name: Build
         run: cmake --build build -j4
-
-      - name: Temp
-        if: startsWith(matrix.config.os, 'windows')
-        run: |
-          dir build
-        shell: cmd
 
       - name: Upload (Windows)
         uses: softprops/action-gh-release@v1
