@@ -64,7 +64,7 @@ jobs:
       
       - name: Upload (Linux)
         uses: softprops/action-gh-release@v1
-        if: startsWith(matrix.config.os, 'linux')
+        if: startsWith(matrix.config.os, 'ubuntu')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
