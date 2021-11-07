@@ -30,9 +30,6 @@ jobs:
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
-        with:
-          arch: "${{ matrix.config.arch }}"
-          version: "5.15.2"
 
       - name: Configure build environment
         if: startsWith(matrix.config.os, 'windows')
