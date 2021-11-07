@@ -4,6 +4,10 @@ Bindings to enable native Qt GUIs with Deno.
 
 **CURRENTLY PRE-ALPHA! Expect things to change!**
 
+## Example
+
+**NOTE: FFI in Deno requires the `--unstable` flag as of version 1.15**
+
 ```typescript
 import { Application } from "./mod.ts";
 
@@ -41,6 +45,10 @@ app.loadData(qml);
 const ret = app.exec();
 console.log(`Finished: ${ret}`);
 ```
+
+Run it with:
+
+    deno run -A --unstable example.ts
 
 ## Getting Started
 
