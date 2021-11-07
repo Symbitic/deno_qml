@@ -18,7 +18,7 @@ add_library(deno_qml SHARED
 )
 
 if (WIN32)
-    set_target_properties(deno_qml PROPERTIES LIBRARY_OUTPUT_NAME deno_qml.dll)
+    set_target_properties(deno_qml PROPERTIES OUTPUT_NAME deno_qml)
 endif()
 
 target_link_libraries(deno_qml PUBLIC
