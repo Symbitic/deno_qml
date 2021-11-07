@@ -3,7 +3,7 @@ import { Plug } from "../deps.ts";
 import { VERSION } from "../version.ts";
 
 const REMOTE_URL =
-  `https://github.com/Symbitic/deno_qml/releases/download/${VERSION}`;
+  `https://github.com/Symbitic/deno_qml/releases/download/v${VERSION}`;
 const LOCAL_URL = "build";
 
 const { protocol } = new URL(import.meta.url);
