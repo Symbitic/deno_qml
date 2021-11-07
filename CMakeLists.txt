@@ -13,7 +13,7 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt5 CONFIG REQUIRED COMPONENTS Core Gui Qml Quick)
 
 if (WIN32)
-    #set(CMAKE_SHARED_LIBRARY_PREFIX "")
+    set(CMAKE_SHARED_LIBRARY_PREFIX "")
     set(CMAKE_SHARED_MODULE_PREFIX "")
 endif()
 
